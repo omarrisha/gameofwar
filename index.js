@@ -11,13 +11,15 @@ let computerScore = 0;
 let myScore = 0;
 
 newDeckBtn.addEventListener("click", function() {
-    // Lines from 15 - 20 --> Refresh during the game or restart //
+    // Lines from 15 - 22 --> Refresh during the game or restart //
     header.textContent = `Game of War`
     drawCardBtn.disabled = false;
     computerScore = 0;
     myScore = 0;
     computerScoreEl.textContent = `Computer score: ${computerScore}`;
     myScoreEl.textContent = `My score: ${myScore}`;
+    cardsContainer.children[0].innerHTML = ``
+    cardsContainer.children[1].innerHTML = ``
     
     fetch("https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/")
         .then(res => res.json())
